@@ -1,0 +1,55 @@
+
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
+    <title>Global Advisory Board</title>
+</head>
+<body>
+    
+    {% include 'mentorship/navbar.html' %}
+
+    <!-- Hero -->
+    <section class="bg-green-800 py-20 mb-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+            <div class="text-center">
+                <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">Mentorship Program</h1>
+                <p class="my-4 text-lg text-white">
+                    Welcome to the Wells Mountain Initiative Mentorship Program. This program is a key part of our Global Advisory Board's scholar-led initiatives.
+                </p>
+                <a href="{% url 'about' %}" class="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700 mt-4">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-4">
+        <div class="container-xl lg:container m-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg">
+                <div class="bg-indigo-100 p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold">For Mentor</h2>
+                    <p>Are you a graduate scholar eager to share your knowledge and experience? </p>
+                    <p class="mt-2 mb-4">
+                        Sign up to be a Mentor
+                    </p>
+                    <a href="https://airtable.com/app8ao9xSw15JFlvb/shrytRQ6KEngcJM29" class="inline-block bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-gray-700" target="_blank">Sign up</a>
+                </div>
+                <div class="bg-indigo-100 p-6 rounded-lg shadow-md">
+                    <h2 class="text-2xl font-bold">For Mentee</h2>
+                    <p>Are you a student scholar looking for guidance?</p>
+                    <p class="mt-2 mb-4">
+                        Sign up to be a Mentee
+                    </p>
+                    <a href="https://airtable.com/app8ao9xSw15JFlvb/shr8jfMbvNSeRKXUk" class="inline-block bg-green-500 text-white rounded-lg px-4 py-2 hover:bg-gray-700" target="_blank">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% include 'mentorship/footer.html' %}
+</body>
+</html>
