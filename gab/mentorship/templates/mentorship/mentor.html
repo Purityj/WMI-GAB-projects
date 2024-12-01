@@ -5,9 +5,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% tailwind_css %}
+    <!-- Add Font Awesome for icons -->
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Mentor</title>
 </head>
-<body>
+<body class="bg-gray-100">
     {% include 'mentorship/navbar.html' %}
+
+    <div class="container mx-auto py-8 px-4">
+        <h1 class="text-4xl font-extrabold text-center text-green-800 mb-8 tracking-wide">
+            Mentorship Materials
+        </h1>
+        
+        <!-- Academic Track Section -->
+        <div class="bg-white shadow-lg rounded-lg mb-8 transition-all duration-300 hover:shadow-2xl">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-2xl font-semibold text-green-800">Academic Track</h2>
+                <button 
+                    onclick="toggleSection('academic-track')" 
+                    class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition">
+                    View Materials
+                </button>
+            </div>
+            <div id="academic-track" class="px-6 py-4 hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {% for session in academic_sessions %}
+                <div class="bg-[#f5f5dc] shadow-lg rounded-lg p-4 border border-gray-200 hover:shadow-xl transition">
+                    <div>
+                        <h3 class="text-lg font-bold text-green-700 mb-2">{{ session.number }}: {{ session.title }}</h3>
+                        <p class="text-sm text-gray-600">Academic Material</p>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <a href="{{ session.material_url }}" 
+                           class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
+                           download
+                           title="Download Material">
+                            <!-- Font Awesome Download Icon -->
+                            <i class="fa-solid fa-download text-black"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    
+        <!-- Professional Track Section -->
+        <div class="bg-white shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-2xl font-semibold text-green-800">Professional Track</h2>
+                <button 
+                    onclick="toggleSection('professional-track')" 
+                    class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition">
+                    View Materials
+                </button>
+            </div>
+            <div id="professional-track" class="px-6 py-4 hidden grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {% for session in professional_sessions %}
+                <div class="bg-[#f5f5dc] shadow-lg rounded-lg p-4 border border-gray-300 hover:shadow-xl transition">
+                    <div>
+                        <h3 class="text-lg font-bold text-green-700 mb-2">{{ session.number }}: {{ session.title }}</h3>
+                        <p class="text-sm text-gray-600">Professional Material</p>
+                    </div>
+                    <div class="mt-4 flex justify-end">
+                        <a href="{{ session.material_url }}" 
+                           class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
+                           download
+                           title="Download Material">
+                            <!-- Font Awesome Download Icon -->
+                            <i class="fa-solid fa-download text-black"></i>
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const button = section.previousElementSibling.querySelector("button");
+
+            // Toggle the visibility of the section
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                button.textContent = "Hide Materials"; // Change button text to "Hide Materials"
+                button.classList.add('bg-gray-500', 'hover:bg-gray-600'); // Change button color to red
+                button.classList.remove('bg-green-600', 'hover:bg-green-700'); // Remove green styles
+            } else {
+                section.classList.add('hidden');
+                button.textContent = "View Materials"; // Change button text to "View Materials"
+                button.classList.add('bg-green-600', 'hover:bg-green-700'); // Change button color back to green
+                button.classList.remove('bg-gray-500', 'hover:bg-gray-600'); // Remove red styles
+            }
+        }
+    </script>
 </body>
 </html>

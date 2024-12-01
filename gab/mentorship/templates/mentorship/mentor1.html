@@ -1,0 +1,93 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% tailwind_css %}
+    <title>Mentor</title>
+</head>
+<body class="bg-gray-100">
+    {% include 'mentorship/navbar.html' %}
+
+    <div class="container mx-auto py-8 px-4">
+        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-8 tracking-wide">
+            Mentorship Materials
+        </h1>
+        
+        <!-- Academic Track Section -->
+        <div class="bg-white shadow-lg rounded-lg mb-8 transition-all duration-300 hover:shadow-2xl">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-2xl font-semibold text-gray-700">Academic Track</h2>
+                <button 
+                    onclick="toggleSection('academic-track')" 
+                    class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 transition">
+                    View Materials
+                </button>
+            </div>
+            <ul id="academic-track" class="px-6 py-4 hidden bg-gray-50 rounded-b-lg">
+                {% for session in academic_sessions %}
+                <li class="mb-4 flex justify-between items-center border-b border-gray-200 pb-2">
+                    <span class="text-gray-700 font-medium">
+                        <strong>{{ session.number }}</strong>: {{ session.title }}
+                    </span>
+                    <a href="{{ session.material_url }}" 
+                       class="text-green-500 font-semibold hover:underline hover:text-green-700 transition" 
+                       download>
+                        Download
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    
+        <!-- Professional Track Section -->
+        <div class="bg-white shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <h2 class="text-2xl font-semibold text-gray-700">Professional Track</h2>
+                <button 
+                    onclick="toggleSection('professional-track')" 
+                    class="bg-green-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300 transition">
+                    View Materials
+                </button>
+            </div>
+            <ul id="professional-track" class="px-6 py-4 hidden bg-gray-50 rounded-b-lg">
+                {% for session in professional_sessions %}
+                <li class="mb-4 flex justify-between items-center border-b border-gray-200 pb-2">
+                    <span class="text-gray-700 font-medium">
+                        <strong>{{ session.number }}</strong>: {{ session.title }}
+                    </span>
+                    <a href="{{ session.material_url }}" 
+                       class="text-green-500 font-semibold hover:underline hover:text-green-700 transition" 
+                       download>
+                        Download
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const button = section.previousElementSibling.querySelector("button");
+
+            // Toggle the visibility of the section
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                button.textContent = "Hide Materials"; // Change button text to "Hide Materials"
+                button.classList.add('bg-red-500', 'hover:bg-red-600'); // Change button color to red
+                button.classList.remove('bg-green-500', 'hover:bg-green-600'); // Remove blue styles
+            } else {
+                section.classList.add('hidden');
+                button.textContent = "View Materials"; // Change button text to "View Materials"
+                button.classList.add('bg-green-500', 'hover:bg-green-600'); // Change button color back to blue
+                button.classList.remove('bg-red-500', 'hover:bg-red-600'); // Remove red styles
+            }
+        }
+    </script>
+</body>
+</html>
