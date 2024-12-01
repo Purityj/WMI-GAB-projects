@@ -11,11 +11,26 @@
         
                 <div class="md:ml-auto">
                     <div class="flex space-x-2">
-                        <a href="{% url 'home' %}" class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">Home</a>
-                        <a href="{% url 'about' %}" class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2 ">About</a>
-                        <!-- <a hidden href="{% url 'mentor' %}" class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">Mentor</a> -->
-                        <a href="{% url 'mentor' %}" class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">Mentor</a>
-                        <a href="{% url 'mentee' %}" class="text-white hover:bg-gray-900 hover:text-white rounded-md px-3 py-2">Mentee</a>
+                        <!-- Home Tab -->
+                        <a href="{% url 'home' %}" 
+                           class="{% if request.resolver_match.url_name == 'home' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
+                            Home
+                        </a>
+                        <!-- About Tab -->
+                        <a href="{% url 'about' %}" 
+                           class="{% if request.resolver_match.url_name == 'about' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
+                            About
+                        </a>
+                        <!-- Mentor Tab -->
+                        <a href="{% url 'mentor' %}" 
+                           class="{% if request.resolver_match.url_name == 'mentor' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
+                            Mentor
+                        </a>
+                        <!-- Mentee Tab -->
+                        <a hidden href="{% url 'mentee' %}" 
+                           class="{% if request.resolver_match.url_name == 'mentee' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
+                            Mentee
+                        </a>
                     </div>
                 </div>
             </div>
