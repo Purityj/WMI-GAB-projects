@@ -8,7 +8,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% tailwind_css %}
     <title>Global Advisory Board</title>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+
 </head>
+
 <body>
     
     {% include 'mentorship/navbar.html' %}
@@ -19,7 +24,7 @@
             <div class="text-center">
                 <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl">Mentorship Program</h1>
                 <p class="my-4 text-lg text-white">
-                    Welcome to the WMI Scholar Mentorship Program. This program is a key part of our Global Advisory Board's(GAB) scholar-led initiatives.
+                    Welcome to the WMI Scholar Mentorship Program. This program is a key part of the Global Advisory Board's(GAB) scholar-led initiatives.
                 </p>
                 <a href="{% url 'about' %}" class="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700 mt-4">Learn More</a>
             </div>
@@ -50,6 +55,32 @@
         </div>
     </section>
 
+<!-- Testimonials Section -->
+
+
+
     {% include 'mentorship/footer.html' %}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.mySwiper', {
+        loop: true,
+        autoplay: {
+            delay: 3000, // Automatically slides every 3 seconds
+            disableOnInteraction: false,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        slidesPerView: 1,
+        spaceBetween: 20,
+    });
+</script>
+    
 </body>
 </html>
