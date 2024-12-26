@@ -1,0 +1,155 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+    {% tailwind_css %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    {% include 'mentorship/navbar.html' %}
+
+    <!-- introduction section -->
+    <section class="container mx-auto p-6 bg-gray-50 rounded-lg shadow-md mb-6">
+        <h1 class="text-3xl font-semibold text-center mb-4">Cohort 1 Overview</h1>
+        <p class="text-lg text-center mb-4">
+            The Scholar Mentorship Program aims to empower scholars through structured guidance, skills development, and knowledge sharing.
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 text-center">
+            <div class="p-4 bg-blue-50 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">📅 Official Launch</h2>
+                <p>July 15, 2024</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">⏳ Mentorship Sessions Start</h2>
+                <p>July 22, 2024</p>
+            </div>
+            <div class="p-4 bg-purple-100 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">⏳ Mentorship Sessions End</h2>
+                <p>Oct 14, 2024</p>
+            </div>
+            <div class="p-4 bg-green-50 rounded-lg shadow-md">
+                <h2 class="text-xl font-semibold mb-2">🎓 Closing Ceremony</h2>
+                <p>Oct 30, 2024</p>
+            </div>
+        </div>
+        <div class="text-center mt-6">
+            <a href="https://docs.google.com/document/d/1stEmezzHUm0iLvLxypJ4CSG6Cz0VtZLGvoSJZIqRk2I/edit?usp=sharing"
+            class="text-blue-600 hover:text-blue-800 font-semibold underline">
+            📄 View Detailed Cohort 1 Schedule
+            </a>
+        </div>
+    </section>
+
+    <!-- key metrics overview -->
+    <section class="container mx-auto p-6 bg-gray-50 rounded-lg shadow-md mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Key Metrics Overview</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="p-4 bg-green-100 rounded-lg shadow-md text-center">
+                <h3 class="text-lg font-semibold">Signup/Registration</h3>
+                <p>Total Mentors: 43</p>
+                <p>Total Mentees: 44</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg shadow-md text-center">
+                <h3 class="text-lg font-semibold">Matched/Paired</h3>
+                <p>Mentors: 38</p>
+                <p>Mentees: 43</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg shadow-md text-center">
+                <h3 class="text-lg font-semibold">Dropped Out</h3>
+                <p>Mentors: 4</p>
+                <p>Mentees: 4</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg shadow-md text-center">
+                <h3 class="text-lg font-semibold">Could not finish on time</h3>
+                <p>Mentors: 7</p>
+                <p>Mentees: 8</p>
+            </div>
+            <div class="p-4 bg-green-100 rounded-lg shadow-md text-center">
+                <h3 class="text-lg font-semibold">Finished all sessions</h3>
+                <p>Mentors: 21</p>
+                <p>Mentees: 24</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- distribution by field of study -->
+    <section class="container mx-auto p-6 bg-gray-50 rounded-lg shadow-md mb-6">
+        <h2 class="text-2xl font-bold mb-4">Distribution by Field of Study</h2>
+        <p class="text-lg text-center mb-4">
+            The chart below shows the distribution of mentors and mentees across various fields of study.
+        </p>
+        <div class="w-full md:w-3/4 mx-auto">
+            <canvas id="fieldOfStudyChart"></canvas>
+        </div>
+    </section>
+
+    <!-- demographics map -->
+    <section class="container mx-auto p-6 bg-gray-50 rounded-lg shadow-md mb-6">
+        <h2 class="text-2xl font-bold mb-4">Demographics Map</h2>
+        <p class="text-lg text-center mb-4">
+            The map below shows the distribution of mentors and mentees from various countries who participated in the first cohort of the Scholars Mentorship Program.
+        </p>
+        <div id="map" class="h-96 w-full border border-gray-300 rounded-md"></div>
+    </section>
+
+    {% include 'mentorship/footer.html' %}
+
+    <!-- field of study chart script -->
+    <script>
+        const ctx = document.getElementById('fieldOfStudyChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [
+                    'Medicine', 'Law', 'Engineering', 'Agriculture', 'Peace & Conflict', 
+                    'Education', 'IT', 'Business & Economics', 'Sustainability', 'Geology'
+                ],
+                datasets: [
+                    {
+                        label: 'Mentees',
+                        data: [30, 3, 2, 2, 1, 1, 3, 0, 0, 1],
+                        backgroundColor: '#4CAF50'
+                    },
+                    {
+                        label: 'Mentors',
+                        data: [26, 4, 1, 1, 1, 2, 1, 5, 1, 0],
+                        backgroundColor: '#2196F3'
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        const map = L.map('map').setView([0, 20], 3);
+
+        // Add Tile Layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+
+        fetch("{% url 'analytics-data' %}")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(country => {
+                    L.marker([country.lat, country.lng])
+                        .addTo(map)
+                        .bindPopup(`
+                            <strong>${country.country}</strong><br>
+                            Mentors: ${country.mentors}<br>
+                            Mentees: ${country.mentees}<br>
+                            <strong>Total: ${country.mentors + country.mentees}</strong>
+                        `);
+                });
+            })
+            .catch(error => console.error('Error fetching demographics data:', error));
+    </script>
+</body>
+</html>

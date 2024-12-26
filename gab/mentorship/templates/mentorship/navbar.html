@@ -22,14 +22,19 @@
                             About
                         </a>
                         <!-- Mentor Tab -->
-                        <!-- <a href="{% url 'mentor' %}" 
+                        <a hidden href="{% url 'mentor' %}" 
                            class="{% if request.resolver_match.url_name == 'mentor' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
                             Mentor
-                        </a> -->
+                        </a>
                         <!-- Mentee Tab -->
                         <a hidden href="{% url 'mentee' %}" 
                            class="{% if request.resolver_match.url_name == 'mentee' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
                             Mentee
+                        </a>
+                        <!-- analytics tab -->
+                         <a hidden href="{% url 'analytics' %}" 
+                           class="{% if request.resolver_match.url_name == 'analytics' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
+                            Analytics
                         </a>
                     </div>
                 </div>

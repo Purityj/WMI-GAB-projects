@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+
+    'django.contrib.gis',  # If using spatial data for maps
+    'chartjs',
+    'leaflet',
 ]
 
 TAILWIND_APP_NAME = 'theme'
