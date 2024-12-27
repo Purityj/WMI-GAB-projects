@@ -29,7 +29,7 @@ urllib3==2.2.1
 gunicorn
 cloudinary 
 django-cloudinary-storage
-django-chartjs 
-django-leaflet
+# django-chartjs 
+# django-leaflet
 python-decouple
 

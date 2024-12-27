@@ -45,8 +45,8 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
 
-    'chartjs',
-    'leaflet',
+    # 'chartjs',
+    # 'leaflet',
 
     # cloudinary
     'cloudinary',
