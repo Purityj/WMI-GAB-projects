@@ -37,7 +37,7 @@
                         Mentee
                     </a>
                     <!-- Analytics Tab -->
-                    <a href="{% url 'analytics' %}" 
+                    <a hidden href="{% url 'analytics' %}" 
                        class="{% if request.resolver_match.url_name == 'analytics' %}bg-green-600 text-white{% else %}text-white hover:bg-green-700 hover:text-white{% endif %} rounded-md px-3 py-2">
                         Analytics
                     </a>
