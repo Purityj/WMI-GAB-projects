@@ -32,3 +32,5 @@ django-cloudinary-storage
 django-chartjs 
 django-leaflet
 python-decouple
+GDAL>=3.0
+
