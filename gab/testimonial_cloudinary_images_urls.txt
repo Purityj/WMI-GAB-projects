@@ -1,0 +1,9 @@
+pic2.jpeg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291837/pic2.jpeg.jpg
+rebecca.jpg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291839/rebecca.jpg.jpg
+onesai.jpeg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291841/onesai.jpeg.jpg
+wmi_logo.png: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291842/wmi_logo.png.png
+aggrey.jpg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291850/aggrey.jpg.jpg
+onesai.png: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291851/onesai.png.png
+pic.jpeg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291851/pic.jpeg.jpg
+ibrahim.jpg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291854/ibrahim.jpg.jpg
+images.jpeg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291855/images.jpeg.jpg

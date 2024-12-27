@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.gis',  # If using spatial data for maps
     'chartjs',
     'leaflet',
+
+    # cloudinary
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -55,6 +60,19 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# CLOUDINARY_STORAGE = {
+#     'CLOUD_NAME': 'dnghf5jbi',
+#     'API_KEY': '178951444117577',
+#     'API_SECRET': 'rOcKhCRtseQYohloiQU1AhHfg0A',
+# }
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_API_SECRET'),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
