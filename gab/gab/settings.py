@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'theme',
     'django_browser_reload',
 
-    # 'django.contrib.gis',  # If using spatial data for maps
+    'django.contrib.gis',  # If using spatial data for maps
     'chartjs',
     'leaflet',
 
