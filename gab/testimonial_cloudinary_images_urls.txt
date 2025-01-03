@@ -7,3 +7,5 @@ onesai.png: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291851/onesai
 pic.jpeg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291851/pic.jpeg.jpg
 ibrahim.jpg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291854/ibrahim.jpg.jpg
 images.jpeg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291855/images.jpeg.jpg
+elizabeth.jpg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735912237/elizabeth.jpg.jpg
+hillary.jpeg: https://res.cloudinary.com/dnghf5jbi/image/upload/v1735912238/hillary.jpeg.jpg

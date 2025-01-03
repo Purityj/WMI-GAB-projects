@@ -21,7 +21,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Path to local image folder
-        IMAGE_FOLDER = os.path.join(settings.BASE_DIR, 'mentorship', 'static', 'images')
+        IMAGE_FOLDER = os.path.join(settings.BASE_DIR, 'mentorship', 'static', 'new_images')
         # IMAGE_FOLDER = "gab/mentorship/static/images"  # Replace this with the actual path
         # verify if folder exists
         if not os.path.exists(IMAGE_FOLDER):
