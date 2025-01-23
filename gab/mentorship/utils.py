@@ -24,7 +24,7 @@ Welcome to the Scholars Mentorship Program!
 
 To access our mentorship resources, please follow these steps:
 
-1. Visit: http://127.0.0.1:8000/login/
+1. Visit: https://wmi-gab-project.vercel.app/login/
 2. Log in using the following credentials:
    • Email: {user_email}
    • Password: {temp_password}
