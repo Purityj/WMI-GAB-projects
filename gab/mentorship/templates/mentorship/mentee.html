@@ -5,9 +5,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% tailwind_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Mentee</title>
 </head>
-<body>
+<body class="bg-gray-100 flex flex-col min-h-screen">
     {% include 'mentorship/navbar.html' %}
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto py-8 px-4">
+        <div class="bg-green-50 shadow-lg rounded-lg p-6 mb-8">
+            <h2 class="text-3xl font-extrabold text-green-800 text-center mb-4">
+                Welcome, Mentee!
+            </h2>
+            <p class="text-lg text-gray-800 text-center leading-relaxed mb-6">
+                Dear Mentors, thank you for taking the time out of your busy schedules to mentor another scholar. 
+                Your role in shaping the next generation of scholars is invaluable, and we deeply appreciate your dedication and expertise. <br><br>
+    
+                Explore resources designed to assist you in your mentoring journey. 
+                These materials are here to guide you but not dictate your approach. 
+                Feel free to adapt them to suit your mentoring style and your mentee's goals. 
+                You can download the materials or view them directly in your browser.<br><br>
+        
+                If you have additional resources or materials that you believe would benefit your mentee, 
+                we encourage you to share them with your mentee. <br><br>
+            </p>
+        </div>
+        
+        <h1 class="text-3xl font-extrabold text-center text-green-800 mb-4 tracking-wide">
+             Resources
+        </h1>
+        <!-- academic track section -->
+        <div class="bg-white shadow-lg rounded-lg mb-8 transition-all duration-300 hover:shadow-2xl">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-book text-green-800 text-xl mr-2"></i>
+                    <h2 class="text-xl font-semibold text-green-800">Academic Track</h2>
+                </div>
+                <button 
+                    onclick="toggleSection('academic-track')" 
+                    class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition">
+                    View Materials
+                </button>
+            </div>
+            <div id="academic-track" class="px-6 py-4 hidden">
+                <p class="text-gray-600 italic mb-4">
+                    Use these materials if your mentees is in Academic Track. This track is for student scholars who are looking to excel in their academics and need guidance from mentors who have gone through the same academics and have excelled 
+                    and therefpre are aware of dos and donts when in school so that when someone graduates they graduate with good grades and with a clear view of what they would like to do or be.<br>
+                    Explore materials that help develop skills in goal setting, time management, and academic planning.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {% for session in academic_sessions %}
+                    <div class="bg-[#f5f5dc] shadow-lg rounded-lg p-4 border border-gray-200 hover:shadow-xl transition">
+                        <div>
+                            <h3 class="text-lg font-bold text-green-700 mb-2">{{ session.number }}: {{ session.title }}</h3>
+                            <p class="text-sm text-gray-600">Academic Material</p>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <!-- View Online Link -->
+                            <a href="{{ session.material_url }}" 
+                               class="text-blue-600 hover:underline text-sm font-medium" 
+                               target="_blank"
+                               title="View Material Online">
+                                <i class="fa-solid fa-eye mr-1"></i> View Online
+                            </a>
+                            <!-- Download Button -->
+                            <a href="{{ session.material_url }}" 
+                               class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
+                               download
+                               title="Download Material">
+                                <i class="fa-solid fa-download text-black"></i>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    
+        <!-- Professional Track Section -->
+        <div class="bg-white shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl">
+            <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+                <div class="flex items-center">
+                    <i class="fa-solid fa-briefcase text-green-800 text-xl mr-2"></i>
+                    <h2 class="text-xl font-semibold text-green-800">Professional Track</h2>
+                </div>
+                <button 
+                    onclick="toggleSection('professional-track')" 
+                    class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300 transition">
+                    View Materials
+                </button>
+            </div>
+            <div id="professional-track" class="px-6 py-4 hidden">
+                <p class="text-gray-600 italic mb-4">
+                    Explore materials for career planning, networking, and professional skill development.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {% for session in professional_sessions %}
+                    <div class="bg-[#f5f5dc] shadow-lg rounded-lg p-4 border border-gray-300 hover:shadow-xl transition">
+                        <div>
+                            <h3 class="text-lg font-bold text-green-700 mb-2">{{ session.number }}: {{ session.title }}</h3>
+                            <p class="text-sm text-gray-600">Professional Material</p>
+                        </div>
+                        <div class="mt-4 flex justify-between items-center">
+                            <!-- View Online Link -->
+                            <a href="{{ session.material_url }}" 
+                               class="text-blue-600 hover:underline text-sm font-medium" 
+                               target="_blank"
+                               title="View material online">
+                                <i class="fa-solid fa-eye mr-1"></i> View Online
+                            </a>
+                            <!-- Download Button -->
+                            <a href="{{ session.material_url }}" 
+                               class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
+                               download
+                               title="Download pdf">
+                                <i class="fa-solid fa-download text-black"></i>
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </main>
+
+    {% include 'mentorship/footer.html' %}
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const button = section.previousElementSibling.querySelector("button");
+
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+                button.textContent = "Hide Materials";
+                button.classList.add('bg-gray-500', 'hover:bg-gray-600');
+                button.classList.remove('bg-green-600', 'hover:bg-green-700');
+            } else {
+                section.classList.add('hidden');
+                button.textContent = "View Materials";
+                button.classList.add('bg-green-600', 'hover:bg-green-700');
+                button.classList.remove('bg-gray-500', 'hover:bg-gray-600');
+            }
+        }
+    </script>
 </body>
 </html>

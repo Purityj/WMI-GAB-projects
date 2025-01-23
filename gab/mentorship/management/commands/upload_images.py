@@ -4,7 +4,8 @@ from django.conf import settings
 import cloudinary.uploader
 from decouple import config
 
-# this file uploads images to cloudinary and prints the urls of those images from cloudinary
+# this file uploads images to cloudinary and prints the urls of those images from cloudinary on terminal
+#to make work easier, I have saved the images in WMI-GAB-projects/testimonial_cloudinary_images_urls.txt file
 # these urls are then used instead of images since Vercel does not allow storage and there4 rendering of images
 # To run this script, go project root dir(gab) then run this command: python manage.py upload_images
 

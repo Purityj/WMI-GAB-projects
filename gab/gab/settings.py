@@ -29,6 +29,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*", ".vercel.app"]
 
+AUTH_USER_MODEL = 'mentorship.CustomUser'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
 
 # Application definition
 
@@ -84,6 +91,17 @@ MIDDLEWARE = [
 
     "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
+
+# email configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # print the emails on the console
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'noreply.scholarmentorship@gmail.com'  
+EMAIL_HOST_PASSWORD = 'ygvsliucxznhsobn'  
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
 
 ROOT_URLCONF = 'gab.urls'
 

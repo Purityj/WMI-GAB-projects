@@ -8,8 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% tailwind_css %}
     <title>Global Advisory Board</title>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
 
 </head>
@@ -81,7 +79,7 @@
                 <div class="swiper-slide">
                     <div class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto flex flex-col items-center overflow-hidden">
                         <div class="w-24 h-24 rounded-full border-4 border-green-500 mb-4 overflow-hidden">
-                            <img src="https://res.cloudinary.com/dnghf5jbi/image/upload/v1735912237/elizabeth.jpg.jpg" alt="Elizabeth kiniale" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dnghf5jbi/image/upload/v1735912237/elizabeth.jpg.jpg" alt="Elizabeth kiniale" class="w-full h-full object-cover object-top"  style="object-position: center 30%";>
                         </div>
                         <p class="text-gray-700 italic text-center mb-4 max-h-36 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400">
                             "I have learnt about how to apply for a job,updated my linked in profile,updated my resume ,cover letter and curriculum vitae.
@@ -123,18 +121,18 @@
                 </div>
 
                 <!-- Testimonial 5 -->
-                <!-- <div class="swiper-slide">
+                <div class="swiper-slide">
                     <div class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto flex flex-col items-center overflow-hidden">
                         <div class="w-24 h-24 rounded-full border-4 border-green-500 mb-4 overflow-hidden">
-                            <img src="{% static 'images/pic2.jpeg' %}" alt="Melissa Takundwa" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dnghf5jbi/image/upload/v1736416942/melisa.jpeg.jpg" alt="Melissa Takundwa" class="w-full h-full object-cover">
                         </div>
                         <p class="text-gray-700 italic text-center mb-4 max-h-36 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400">
-                            "As a first mentor,this enriching experience taught me the value of patience,active listening and reinforcing my commitment to nurturing budding talents."
+                            "As a first mentor, this enriching experience taught me the value of patience,active listening and reinforcing my commitment to nurturing budding talents."
                         </p>
                         <h4 class="text-green-800 font-bold">Melissa Takundwa</h4>
                         <span class="text-gray-500">Mentor</span>
                     </div>
-                </div> -->
+                </div>
 
                 <!-- Testimonial 6 -->
                 <div class="swiper-slide">
@@ -155,21 +153,21 @@
                 <div class="swiper-slide">
                     <div class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto flex flex-col items-center overflow-hidden">
                         <div class="w-24 h-24 rounded-full border-4 border-green-500 mb-4 overflow-hidden">
-                            <img src="https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291850/aggrey.jpg.jpg" alt="Ayebazibwe Aggrey" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dnghf5jbi/image/upload/v1735291850/aggrey.jpg.jpg" alt="Ayebazibwe Aggrey" class="w-full h-full object-cover"  style="object-position: right -1%;">
                         </div>
                         <p class="text-gray-700 italic text-center mb-4 max-h-36 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400">
                             "The Scholars Mentorship program was an exciting opportunity for me number one to give back because WMI facilitated my first formal mentorship with Global Mentorship Initiative where am now a mentor, and number 2 a journey of growth. Meeting with different scholars from diverse communities with diverse experiences and expectations from the program was exciting and worth taking. I remain grateful to the WMI mentorship program coordinators and the WMI family at large."
                         </p>
-                        <h4 class="text-green-800 font-bold">Ayebazibwe Aggrey</h4>
+                        <h4 class="text-green-800 font-bold">Dr. Ayebazibwe Aggrey</h4>
                         <span class="text-gray-500">Mentor</span>
                     </div>
                 </div>
 
                 <!-- Testimonial 8 -->
-                <!-- <div class="swiper-slide">
+                <div class="swiper-slide">
                     <div class="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto flex flex-col items-center overflow-hidden">
                         <div class="w-24 h-24 rounded-full border-4 border-green-500 mb-4 overflow-hidden">
-                            <img src="{% static 'images/pic2.jpeg' %}" alt="Abigail Koomson" class="w-full h-full object-cover">
+                            <img src="https://res.cloudinary.com/dnghf5jbi/image/upload/v1736426174/abigael.jpg.jpg" alt="Abigail Koomson" class="w-full h-full object-cover">
                         </div>
                         <p class="text-gray-700 italic text-center mb-4 max-h-36 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400">
                             "Thanks to this mentorship program, I have  learned to prioritize my time effectively. Now, I focus on doing the most urgent tasks first, followed by the important ones."
@@ -177,7 +175,7 @@
                         <h4 class="text-green-800 font-bold">Abigail Koomson</h4>
                         <span class="text-gray-500">Mentee</span>
                     </div>
-                </div> -->
+                </div>
             </div>
 
             <!-- Navigation Buttons -->
@@ -198,7 +196,7 @@
     var swiper = new Swiper('.mySwiper', {
         loop: true,
         autoplay: {
-            delay: 5000, // Automatically slides every 3 seconds
+            delay: 10000, // automatically slides every 10 seconds
             disableOnInteraction: false,
         },
         navigation: {

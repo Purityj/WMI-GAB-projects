@@ -1,5 +1,14 @@
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth.views import LoginView, LogoutView
+from django.urls import reverse_lazy
+from .forms import LoginForm
+
+from .decorators import mentor_required, mentee_required, wmi_required
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from django.contrib.auth import get_user_model
+from .models import CustomUser
 
 # Create your views here.
 def home(request):
@@ -8,27 +17,50 @@ def home(request):
 def about(request):
     return render(request, 'mentorship/about.html')
 
-
+@mentee_required
 def mentee(request):
-    return render(request, 'mentorship/mentee.html')
-
-def mentor(request):
     academic_sessions = [
-        {"number": "Session 1", "title": "Introduction & Mentor-Mentee Relationship", "material_url": "/static/mentorship_materials/academic_track/session1.pdf"},
-        {"number": "Session 2", "title": "Setting SMART Goals", "material_url": "/static/mentorship_materials/academic_track/session2.pdf"},
-        {"number": "Session 3", "title": "Time Management", "material_url": "/static/mentorship_materials/academic_track/session3.pdf"},
-        {"number": "Session 4", "title": "Academic and Extracurricular Activities", "material_url": "/static/mentorship_materials/academic_track/session4.pdf"},
-        {"number": "Session 5", "title": "Develop a Career Plan", "material_url": "/static/mentorship_materials/academic_track/session5.pdf"},
-        {"number": "Session 6", "title": "Leadership Development and Personal Growth", "material_url": "/static/mentorship_materials/academic_track/session6.pdf"},
+        {"number": "Session 1", "title": "Introduction & Mentor-Mentee Relationship", "material_url": "/static/mentorship_materials/academic_track/mentee_session1.pdf"},
+        {"number": "Session 2", "title": "Setting SMART Goals", "material_url": "/static/mentorship_materials/academic_track/mentee_session2.pdf"},
+        {"number": "Session 3", "title": "Time Management", "material_url": "/static/mentorship_materials/academic_track/mentee_session3.pdf"},
+        {"number": "Session 4", "title": "Academic and Extracurricular Activities", "material_url": "/static/mentorship_materials/academic_track/mentee_session4.pdf"},
+        {"number": "Session 5", "title": "Develop a Career Plan", "material_url": "/static/mentorship_materials/academic_track/mentee_session5.pdf"},
+        {"number": "Session 6", "title": "Leadership Development and Personal Growth", "material_url": "/static/mentorship_materials/academic_track/mentee_session6.pdf"},
     ]
 
     professional_sessions = [
-        {"number": "Session 1", "title": "Introduction & Career Planning", "material_url": "/static/mentorship_materials/professional_track/session1.pdf"},
-        {"number": "Session 2", "title": "Job Search Strategies", "material_url": "/static/mentorship_materials/professional_track/session2.pdf"},
-        {"number": "Session 3", "title": "Networking", "material_url": "/static/mentorship_materials/professional_track/session3.pdf"},
-        {"number": "Session 4", "title": "Interview Part 1", "material_url": "/static/mentorship_materials/professional_track/session4.pdf"},
-        {"number": "Session 5", "title": "Interview Part 2", "material_url": "/static/mentorship_materials/professional_track/session5.pdf"},
-        {"number": "Session 6", "title": "Enhancing Professional Skills", "material_url": "/static/mentorship_materials/professional_track/session6.pdf"},
+        {"number": "Session 1", "title": "Introduction & Career Planning", "material_url": "/static/mentorship_materials/professional_track/mentee_session1.pdf"},
+        {"number": "Session 2", "title": "Job Search Strategies", "material_url": "/static/mentorship_materials/professional_track/mentee_session2.pdf"},
+        {"number": "Session 3", "title": "Networking", "material_url": "/static/mentorship_materials/professional_track/mentee_session3.pdf"},
+        {"number": "Session 4", "title": "Interview Part 1", "material_url": "/static/mentorship_materials/professional_track/mentee_session4.pdf"},
+        {"number": "Session 5", "title": "Interview Part 2", "material_url": "/static/mentorship_materials/professional_track/mentee_session5.pdf"},
+        {"number": "Session 6", "title": "Enhancing Professional Skills", "material_url": "/static/mentorship_materials/professional_track/mentee_session6.pdf"},
+    ]
+
+    return render(request, 'mentorship/mentee.html', {
+        'academic_sessions': academic_sessions,
+        'professional_sessions': professional_sessions,
+    })
+   
+
+@mentor_required
+def mentor(request):
+    academic_sessions = [
+        {"number": "Session 1", "title": "Introduction & Mentor-Mentee Relationship", "material_url": "/static/mentorship_materials/academic_track/mentor_session1.pdf"},
+        {"number": "Session 2", "title": "Setting SMART Goals", "material_url": "/static/mentorship_materials/academic_track/mentor_session2.pdf"},
+        {"number": "Session 3", "title": "Time Management", "material_url": "/static/mentorship_materials/academic_track/mentor_session3.pdf"},
+        {"number": "Session 4", "title": "Academic and Extracurricular Activities", "material_url": "/static/mentorship_materials/academic_track/mentor_session4.pdf"},
+        {"number": "Session 5", "title": "Develop a Career Plan", "material_url": "/static/mentorship_materials/academic_track/mentor_session5.pdf"},
+        {"number": "Session 6", "title": "Leadership Development and Personal Growth", "material_url": "/static/mentorship_materials/academic_track/mentor_session6.pdf"},
+    ]
+
+    professional_sessions = [
+        {"number": "Session 1", "title": "Introduction & Career Planning", "material_url": "/static/mentorship_materials/professional_track/mentor_session1.pdf"},
+        {"number": "Session 2", "title": "Job Search Strategies", "material_url": "/static/mentorship_materials/professional_track/mentor_session2.pdf"},
+        {"number": "Session 3", "title": "Networking", "material_url": "/static/mentorship_materials/professional_track/mentor_session3.pdf"},
+        {"number": "Session 4", "title": "Interview Part 1", "material_url": "/static/mentorship_materials/professional_track/mentor_session4.pdf"},
+        {"number": "Session 5", "title": "Interview Part 2", "material_url": "/static/mentorship_materials/professional_track/mentor_session5.pdf"},
+        {"number": "Session 6", "title": "Enhancing Professional Skills", "material_url": "/static/mentorship_materials/professional_track/mentor_session6.pdf"},
     ]
 
     return render(request, 'mentorship/mentor.html', {
@@ -37,6 +69,7 @@ def mentor(request):
     })
 
 
+@wmi_required
 def analytics(request):
     # Demographic Data
     demographics_data = [
@@ -91,3 +124,49 @@ def demographics_data_api(request):
         {"country": "South Africa", "mentors": 1, "mentees": 0, "lat": -30.5595, "lng": 22.9375},
     ]
     return JsonResponse(demographics_data, safe=False)
+
+class CustomLoginView(LoginView):
+    template_name = 'mentorship/login.html'
+    form_class = LoginForm
+    # redirect_authenticated_user = True  # redirect already logged-in users
+
+    def form_valid(self, form):
+        """handle successful login"""
+        print("Form validation succeeded")
+        user = form.get_user()
+        print(f"Authenticated user: {user.email}, Role: {user.role}")
+        return super().form_valid(form)
+    
+
+    def form_invalid(self, form):
+        """"handle invlaid login attempts by adding an error message"""
+        # log the error
+        print("Login failed. Errors:", form.errors)
+
+        # add an error message for the user
+        messages.error(self.request, 'Invalid email or password. Please try again.')
+        return super().form_invalid(form)
+    
+ 
+    def get_success_url(self):
+        # ensure user is an instance of CustomUser
+        CustomUser = get_user_model()
+        user = CustomUser.objects.get(pk=self.request.user.pk)
+
+        print(f"Redirecting user: {user.email} with role: {user.role} ")
+        
+        # redirect based on role
+        if user.is_wmi_domain():  
+            print("Redirecting to analytics")            #full access for WMI domain users 
+            return reverse_lazy('analytics')
+        elif user.role == 'mentor':
+            print("Redirecting to mentor page")
+            return reverse_lazy('mentor')     #mentor's dashboard
+        elif user.role == 'mentee':
+            print("Redirecting to mentee page")
+            return reverse_lazy('mentee')    #mentee's dashboard
+        print("Redirecting to home page")
+        return reverse_lazy('home')          #default fallback
+
+class CustomLogoutView(LogoutView):
+    next_page = reverse_lazy('login')      #redirect to login page after logout

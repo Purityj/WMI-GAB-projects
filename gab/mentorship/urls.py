@@ -11,4 +11,6 @@ urlpatterns = [
     path('analytics/', views.analytics, name='analytics'),
     path('analytics-data/', views.demographics_data_api, name='analytics-data'),
     # path('mentorship-materials/', views.mentorship_materials, name='mentorship_materials'),
+    path('login/', views.CustomLoginView.as_view(), name='login'),
+    path('logout/', views.CustomLogoutView.as_view(), name='logout'),
 ]
