@@ -10,6 +10,7 @@ def send_login_email(user_email, role):
     # get the CustomUser model
     User = get_user_model()  #dynamically fetches CustomUser instead of default User
     user = User.objects.get(email=user_email)
+    username = user.username
 
     # set the temporary password 
     user.set_password(temp_password)
@@ -18,7 +19,7 @@ def send_login_email(user_email, role):
     # prepare the email content
     subject = "Login to Access Mentorship Resources"
     message = f"""
-Dear {role},
+Dear {username},
 
 Welcome to the Scholars Mentorship Program!
 

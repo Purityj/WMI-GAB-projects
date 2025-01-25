@@ -34,6 +34,38 @@
         <h1 class="text-3xl font-extrabold text-center text-green-800 mb-4 tracking-wide">
              Resources
         </h1>
+         <!-- mentorship schedule section -->
+    <div class="bg-white shadow-lg rounded-lg mb-8 transition-all duration-300 hover:shadow-2xl">
+        <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fa-solid fa-calendar text-green-800 text-xl mr-2"></i>
+                <h2 class="text-xl font-semibold text-green-800">Mentorship Schedule</h2>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class=" mb-4">
+                Below is the schedule for the mentorship program, outlining key dates and the sessions to be covered on those dates.  <br><br>
+                The schedule is designed for biweekly meetings between mentors and mentees. However, in case of unforeseen circumstances, you may adjust the schedule to better suit your availability. 
+                That said, we strongly encourage you to adhere to the provided schedule to ensure timely completion of the program. 
+                You can download the full schedule as a PDF or view it online.
+            </p>
+            <!-- schedule in PDF -->
+            <div class="flex justify-between items-center">
+                <a href="{{ mentorship_schedule }}" 
+                   class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 transition" 
+                   target="_blank" 
+                   title="View Mentorship Schedule">
+                    <i class="fa-solid fa-eye mr-1"></i> View Schedule
+                </a>
+                <a href="{{ mentorship_schedule }}" 
+                   class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
+                   download
+                   title="Download Mentorship Schedule PDF">
+                    <i class="fa-solid fa-download text-black"></i>
+                </a>
+            </div>
+        </div>
+    </div>
         <!-- academic track section -->
         <div class="bg-white shadow-lg rounded-lg mb-8 transition-all duration-300 hover:shadow-2xl">
             <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
@@ -50,8 +82,9 @@
             <div id="academic-track" class="px-6 py-4 hidden">
                 <p class="text-gray-50 italic mb-4">
                     Use these materials if your mentees is in Academic Track. <br><br>
-                    This track is for student scholars who are looking to excel in their academics and need guidance from mentors who have gone through the same academics and have excelled 
-                    and therefore are aware of dos and donts when in school so that when someone graduates they graduate with good grades and with a clear view of what they would like to do or be.<br>
+                    This track is for student scholars who are looking to excel in their academics and need guidance from mentors who have gone through the same academics and have excelled. 
+                    and therefore are aware of dos and donts. Your main task as a mentor is to utilize these materials and any other you deem necessary to guide your mentees so that when they 
+                    graduate they graduate with good grades, on time and with a clear view of what they would like to do or be.<br>
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {% for session in academic_sessions %}
@@ -82,7 +115,7 @@
             </div>
         </div>
     
-        <!-- Professional Track Section -->
+        <!-- professional track section -->
         <div class="bg-white shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl">
             <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                 <div class="flex items-center">
@@ -97,9 +130,12 @@
             </div>
             <div id="professional-track" class="px-6 py-4 hidden">
                 <p class="text-gray-600 italic mb-4">
-                    This track is designed for individuals aiming to excel in their professional careers. <br><br> 
-                    It provides guidance and resources for mentees seeking mentorship from experienced professionals who have successfully navigated their career paths. These materials focus on developing essential skills in resume and cover letter writing, networking, interview skills, understanding workplace dynamics, and making informed decisions about career progression. <br><br>
-                    By the end of this track, your mentee(s) should be better equipped to achieve their professional goals with confidence and clarity.
+                    Use these materials if your mentees is in Professional Track. <br><br>
+
+                    This track is designed for mentees looking for career guidance. You as the professional in the career the mentee is looking to join is expected to use these 
+                    material and any other materials you deem necessary to provide guidance to your mentee(s) so that at the end of the mentorship your mentee should have skills 
+                    in resume and cover letter writing, networking, interview, understanding workplace dynamics, and making informed decisions about their career progression. <br><br>
+                    By the end of this track, they should be better equipped to achieve their professional goals with confidence and clarity.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {% for session in professional_sessions %}

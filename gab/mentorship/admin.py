@@ -11,18 +11,18 @@ from django.contrib.auth.hashers import make_password
 # register the CustomUser model with custom fields and methods
 class CustomUserAdmin(admin.ModelAdmin):
     #  show only email, role and permissions fields
-    list_display = ('email', 'role', 'is_wmi_domain', 'is_staff', 'is_active')
-    search_fields = ('email', 'role')
+    list_display = ('username', 'email', 'role', 'is_wmi_domain', 'is_staff', 'is_active')
+    search_fields = ('username','email', 'role')
     list_filter = ('role', 'is_staff', 'is_active')
     fieldsets = (
-        (None, {'fields': ('email', 'password', 'role')}),
+        (None, {'fields': ('username','email', 'password', 'role')}),
         ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions')}),
         ('Important Dates', {'fields': ('last_login', 'date_joined')}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'password1', 'password2', 'role')}
+            'fields': ('username','email', 'password1', 'password2', 'role')}
         ),
     )
     ordering = ('email',)

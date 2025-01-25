@@ -36,10 +36,12 @@ def mentee(request):
         {"number": "Session 5", "title": "Interview Part 2", "material_url": "/static/mentorship_materials/professional_track/mentee_session5.pdf"},
         {"number": "Session 6", "title": "Enhancing Professional Skills", "material_url": "/static/mentorship_materials/professional_track/mentee_session6.pdf"},
     ]
+    mentorship_schedule = "/static/mentorship_materials/schedule.pdf"
 
     return render(request, 'mentorship/mentee.html', {
         'academic_sessions': academic_sessions,
         'professional_sessions': professional_sessions,
+        'mentorship_schedule': mentorship_schedule,
     })
    
 
@@ -63,9 +65,12 @@ def mentor(request):
         {"number": "Session 6", "title": "Enhancing Professional Skills", "material_url": "/static/mentorship_materials/professional_track/mentor_session6.pdf"},
     ]
 
+    mentorship_schedule = "/static/mentorship_materials/schedule.pdf"
+    
     return render(request, 'mentorship/mentor.html', {
         'academic_sessions': academic_sessions,
         'professional_sessions': professional_sessions,
+        'mentorship_schedule': mentorship_schedule,
     })
 
 

@@ -11,29 +11,63 @@
 <body class="bg-gray-100 flex flex-col min-h-screen">
     {% include 'mentorship/navbar.html' %}
 
-    <!-- Main Content -->
+    <!-- main content -->
     <main class="flex-grow container mx-auto py-8 px-4">
         <div class="bg-green-50 shadow-lg rounded-lg p-6 mb-8">
             <h2 class="text-3xl font-extrabold text-green-800 text-center mb-4">
-                Welcome, Mentee!
+                Welcome Mentee!
             </h2>
             <p class="text-lg text-gray-800 text-center leading-relaxed mb-6">
-                Dear Mentors, thank you for taking the time out of your busy schedules to mentor another scholar. 
-                Your role in shaping the next generation of scholars is invaluable, and we deeply appreciate your dedication and expertise. <br><br>
-    
-                Explore resources designed to assist you in your mentoring journey. 
-                These materials are here to guide you but not dictate your approach. 
-                Feel free to adapt them to suit your mentoring style and your mentee's goals. 
-                You can download the materials or view them directly in your browser.<br><br>
-        
-                If you have additional resources or materials that you believe would benefit your mentee, 
-                we encourage you to share them with your mentee. <br><br>
+                Dear Mentee, welcome to the Scholars Mentorship Program!  
+                This is your journey to growth, guided by experienced mentors who are here to help you succeed.  
+                Your commitment to learning and self-improvement is commendable, and we’re here to support you every step of the way. <br><br>
+                
+                On this page, you’ll find a range of resources tailored to help you achieve your academic and professional goals.  
+                These materials are designed to inspire and guide you, but you’re encouraged to actively discuss them with your mentor and adapt their insights to your unique aspirations.  
+                You can download these resources or view them directly in your browser.<br><br>
+                
+                Remember, mentorship is a two-way street—don’t hesitate to share your ideas, ask questions, or request additional guidance.  
+                Together with your mentor, you have the opportunity to shape a pathway toward your success. <br><br>
             </p>
         </div>
         
         <h1 class="text-3xl font-extrabold text-center text-green-800 mb-4 tracking-wide">
              Resources
         </h1>
+
+         <!-- mentorship schedule section -->
+    <div class="bg-white shadow-lg rounded-lg mb-8 transition-all duration-300 hover:shadow-2xl">
+        <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fa-solid fa-calendar text-green-800 text-xl mr-2"></i>
+                <h2 class="text-xl font-semibold text-green-800">Mentorship Schedule</h2>
+            </div>
+        </div>
+        <div class="px-6 py-4">
+            <p class=" mb-4">
+                Below is the schedule for the mentorship program, outlining key dates and the sessions to be covered on those dates. <br><br>
+                The schedule is designed for biweekly meetings between mentors and mentees. However, in case of unforeseen circumstances, you may adjust the schedule to better suit your availability. 
+                That said, we strongly encourage you to adhere to the provided schedule to ensure timely completion of the program. 
+                You can download the full schedule as a PDF or view it online.
+            </p>
+            <!-- schedule in PDF -->
+            <div class="flex justify-between items-center">
+                <a href="{{ mentorship_schedule }}" 
+                   class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 transition" 
+                   target="_blank" 
+                   title="View Mentorship Schedule">
+                    <i class="fa-solid fa-eye mr-1"></i> View Schedule
+                </a>
+                <a href="{{ mentorship_schedule }}" 
+                   class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
+                   download
+                   title="Download Mentorship Schedule PDF">
+                    <i class="fa-solid fa-download text-black"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
         <!-- academic track section -->
         <div class="bg-white shadow-lg rounded-lg mb-8 transition-all duration-300 hover:shadow-2xl">
             <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
@@ -49,9 +83,12 @@
             </div>
             <div id="academic-track" class="px-6 py-4 hidden">
                 <p class="text-gray-600 italic mb-4">
-                    Use these materials if your mentees is in Academic Track. This track is for student scholars who are looking to excel in their academics and need guidance from mentors who have gone through the same academics and have excelled 
-                    and therefpre are aware of dos and donts when in school so that when someone graduates they graduate with good grades and with a clear view of what they would like to do or be.<br>
-                    Explore materials that help develop skills in goal setting, time management, and academic planning.
+                    Use these materials if you are in the Academic Track. <br><br>
+
+                    This track is for student scholars who are striving to excel in their academic journey and are seeking guidance from mentors who have navigated the same path successfully. 
+                    As a mentee, your goal is to work closely with your mentor to make the most of these materials and any additional resources they provide. 
+                    Together, you will focus on achieving academic excellence, graduating on time, and gaining a clear vision of your future goals. <br><br>
+                    By the end of this track, you should be well-prepared to graduate with strong grades and a clear sense of direction for your post-graduation life.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {% for session in academic_sessions %}
@@ -61,14 +98,14 @@
                             <p class="text-sm text-gray-600">Academic Material</p>
                         </div>
                         <div class="mt-4 flex justify-between items-center">
-                            <!-- View Online Link -->
+                            <!-- view online link -->
                             <a href="{{ session.material_url }}" 
                                class="text-blue-600 hover:underline text-sm font-medium" 
                                target="_blank"
                                title="View Material Online">
                                 <i class="fa-solid fa-eye mr-1"></i> View Online
                             </a>
-                            <!-- Download Button -->
+                            <!-- download button -->
                             <a href="{{ session.material_url }}" 
                                class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
                                download
@@ -82,7 +119,7 @@
             </div>
         </div>
     
-        <!-- Professional Track Section -->
+        <!-- professional track section -->
         <div class="bg-white shadow-lg rounded-lg transition-all duration-300 hover:shadow-2xl">
             <div class="px-6 py-4 border-b border-gray-200 flex justify-between items-center">
                 <div class="flex items-center">
@@ -97,7 +134,11 @@
             </div>
             <div id="professional-track" class="px-6 py-4 hidden">
                 <p class="text-gray-600 italic mb-4">
-                    Explore materials for career planning, networking, and professional skill development.
+                    Use these materials if you are in the Professional Track. <br><br>
+                    This track is designed for mentees who are seeking professional career guidance. You will use these materials to build key skills that will help you advance in your career. 
+                    The materials, along with any additional guidance from your mentor, are intended to help you develop expertise in areas such as resume and cover letter writing, networking, job interviews, 
+                    understanding workplace dynamics, and making informed decisions about your career trajectory. <br><br>
+                    By the end of this track, you will have the tools and confidence to take proactive steps in your professional journey and achieve your career goals with clarity and direction.
                 </p>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {% for session in professional_sessions %}
@@ -107,14 +148,14 @@
                             <p class="text-sm text-gray-600">Professional Material</p>
                         </div>
                         <div class="mt-4 flex justify-between items-center">
-                            <!-- View Online Link -->
+                            <!-- view online link -->
                             <a href="{{ session.material_url }}" 
                                class="text-blue-600 hover:underline text-sm font-medium" 
                                target="_blank"
                                title="View material online">
                                 <i class="fa-solid fa-eye mr-1"></i> View Online
                             </a>
-                            <!-- Download Button -->
+                            <!-- download button -->
                             <a href="{{ session.material_url }}" 
                                class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
                                download
