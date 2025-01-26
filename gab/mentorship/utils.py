@@ -33,7 +33,8 @@ To access our mentorship resources, please follow these steps:
 If you encounter any issues accessing the platform, please contact our support team at scholarmentorship@wellsmountaininitiative.org.
 
 Best regards,
-Scholars Mentorship Program Team
+Purity Jangaya
+Scholars Mentorship Program Coordinator
 
     """
     from_email = 'noreply.scholarmentorship@gmail.com'  # replace with sender email
