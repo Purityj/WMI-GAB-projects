@@ -33,4 +33,5 @@ django-cloudinary-storage
 # django-leaflet
 python-decouple
 dj_database_url  #helps pass the postgres db url
+psycopg2
 
