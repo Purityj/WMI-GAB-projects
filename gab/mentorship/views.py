@@ -10,6 +10,9 @@ from django.contrib import messages
 from django.contrib.auth import get_user_model
 from .models import CustomUser
 
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+
 # Create your views here.
 def home(request):
     return render(request, 'mentorship/home.html')
@@ -174,4 +177,7 @@ class CustomLoginView(LoginView):
         return reverse_lazy('home')          #default fallback
 
 class CustomLogoutView(LogoutView):
-    next_page = reverse_lazy('login')      #redirect to login page after logout
+    def dispatch(self, request, *args, **kwargs):
+        logout(request)
+        return(redirect(reverse_lazy('login')))
+    # next_page = reverse_lazy('login')      #redirect to login page after logout
