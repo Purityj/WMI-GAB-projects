@@ -13,6 +13,11 @@ class CustomUserManager(BaseUserManager):
     
     def create_user(self, email, username, role, password: None, **extra_fields):
         # create and return a regular user
+        # validate the role
+        valid_roles = [choice[0] for choice in ROLE_CHOICES]
+        if role not in valid_roles:
+            raise ValueError(f"Invalid role: {role}. Must be one of: {valid_roles}")
+        
         if not email:
             raise ValueError("The email field must be set")
         if not username:

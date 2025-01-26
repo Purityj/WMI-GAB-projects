@@ -41,7 +41,3 @@ Scholars Mentorship Program Team
 
     # send the email
     send_mail(subject, message, from_email, recipient_list)
-
-
-    
-    
