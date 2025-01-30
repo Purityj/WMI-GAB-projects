@@ -30,6 +30,8 @@ To access our mentorship resources, please follow these steps:
    • Email: {user_email}
    • Password: {temp_password}
 
+📌 Available Materials for mentees on Academic Track: Only Sessions 1 & 2 materials are available on the website. Use these to get started as we add the remaining sessions soon.
+
 If you encounter any issues accessing the platform, please contact our support team at scholarmentorship@wellsmountaininitiative.org.
 
 Best regards,

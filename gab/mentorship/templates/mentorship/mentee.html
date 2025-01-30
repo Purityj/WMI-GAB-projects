@@ -99,19 +99,23 @@
                         </div>
                         <div class="mt-4 flex justify-between items-center">
                             <!-- view online link -->
-                            <a href="{{ session.material_url }}" 
-                               class="text-blue-600 hover:underline text-sm font-medium" 
-                               target="_blank"
-                               title="View Material Online">
-                                <i class="fa-solid fa-eye mr-1"></i> View Online
-                            </a>
-                            <!-- download button -->
-                            <a href="{{ session.material_url }}" 
-                               class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
-                               download
-                               title="Download Material">
-                                <i class="fa-solid fa-download text-black"></i>
-                            </a>
+                            {% if session.material_url %}
+                                <a href="{{ session.material_url }}" 
+                                class="text-blue-600 hover:underline text-sm font-medium" 
+                                target="_blank"
+                                title="View Material Online">
+                                    <i class="fa-solid fa-eye mr-1"></i> View Online
+                                </a>
+                                <!-- download button -->
+                                <a href="{{ session.material_url }}" 
+                                class="bg-gold-500 text-white p-2 rounded-full shadow-md hover:bg-gold-600 transition"
+                                download
+                                title="Download Material">
+                                    <i class="fa-solid fa-download text-black"></i>
+                                </a>
+                            {% else %}
+                                <span class="text-gray-500 italic">Coming Soon</span>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
