@@ -21,7 +21,7 @@ def send_login_email(user_email, role):
     message = f"""
 Dear {username},
 
-Welcome to the Scholars Mentorship Program!
+Welcome to the Scholars Mentorship Program resources portal!
 
 To access our mentorship resources, please follow these steps:
 
