@@ -165,8 +165,8 @@ class CustomLoginView(LoginView):
         
         # redirect based on role
         if user.is_wmi_domain():  
-            print("Redirecting to analytics")            #full access for WMI domain users 
-            return reverse_lazy('analytics')
+            print("Redirecting to home page")            #full access for WMI domain users 
+            return reverse_lazy('home')
         elif user.role == 'mentor':
             print("Redirecting to mentor page")
             return reverse_lazy('mentor')     #mentor's dashboard
