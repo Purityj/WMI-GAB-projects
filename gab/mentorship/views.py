@@ -25,8 +25,8 @@ def mentee(request):
     academic_sessions = [
         {"number": "Session 1", "title": "Introduction & Mentor-Mentee Relationship", "material_url": "/static/mentorship_materials/academic_track/mentee_session1.pdf"},
         {"number": "Session 2", "title": "Setting SMART Goals", "material_url": "/static/mentorship_materials/academic_track/mentee_session2.pdf"},
-        {"number": "Session 3", "title": "Time Management", "material_url": "#"},
-        {"number": "Session 4", "title": "Academic and Extracurricular Activities", "material_url": "#"},
+        {"number": "Session 3", "title": "Time Management", "material_url": "/static/mentorship_materials/academic_track/mentee_session3.pdf"},
+        {"number": "Session 4", "title": "Academic and Extracurricular Activities", "material_url": "/static/mentorship_materials/academic_track/mentee_session4.pdf"},
         {"number": "Session 5", "title": "Develop a Career Plan", "material_url": "#"},
         {"number": "Session 6", "title": "Leadership Development and Personal Growth", "material_url": "#"},
     ]

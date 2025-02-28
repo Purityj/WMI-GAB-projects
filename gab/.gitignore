@@ -3,6 +3,7 @@
 
 #files & folders
 gab/mentorship/templates/mentorship/mentor1.html
+hacks.txt
 
 ### Django ###
 *.log
