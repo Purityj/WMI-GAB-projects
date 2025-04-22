@@ -56,7 +56,7 @@ def mentor(request):
         {"number": "Session 3", "title": "Time Management", "material_url": "/static/mentorship_materials/academic_track/mentor_session3.pdf"},
         {"number": "Session 4", "title": "Academic and Extracurricular Activities", "material_url": "/static/mentorship_materials/academic_track/mentor_session4.pdf"},
         {"number": "Session 5", "title": "Develop a Career Plan", "material_url": "/static/mentorship_materials/academic_track/mentor_session5.pdf"},
-        {"number": "Session 6", "title": "Leadership Development and Personal Growth", "material_url": "/static/mentorship_materials/academic_track/mentor_session6.pdf"},
+        {"number": "Session 6", "title": "Leadership Development and Personal Growth", "material_url": "/static/mentorship_materials/academic_track/mentor_session_6.pdf"},
     ]
 
     professional_sessions = [
@@ -65,7 +65,7 @@ def mentor(request):
         {"number": "Session 3", "title": "Networking", "material_url": "/static/mentorship_materials/professional_track/mentor_session3.pdf"},
         {"number": "Session 4", "title": "Interview Part 1", "material_url": "/static/mentorship_materials/professional_track/mentor_session4.pdf"},
         {"number": "Session 5", "title": "Interview Part 2", "material_url": "/static/mentorship_materials/professional_track/mentor_session5.pdf"},
-        {"number": "Session 6", "title": "Enhancing Professional Skills", "material_url": "/static/mentorship_materials/professional_track/mentor_session_6.pdf"},
+        {"number": "Session 6", "title": "Enhancing Professional Skills", "material_url": "/static/mentorship_materials/professional_track/mentor_session6.pdf"},
     ]
 
     mentorship_schedule = "/static/mentorship_materials/schedule.pdf"
